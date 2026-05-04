@@ -9,7 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Pathway+Gothic+One&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        
+body {
+    isolation: isolate;
+}
         html, body { 
             width: 100%; 
             height: 100%; 
@@ -115,41 +117,45 @@
         .main-title h1 { font-size: clamp(40px, 8vw, 70px); text-transform: uppercase; line-height: 0.85; }
         .main-title h1 em { font-style: normal; color: rgba(255,255,255,0.2); }
 
-        /* КНОПКИ СОЦСЕТЕЙ - ПРИНУДИТЕЛЬНО СВЕРХУ */
-        .social-nav { 
-            position: fixed; 
-            bottom: 30px; 
-            right: 32px; 
-            z-index: 100;
-            display: flex; 
-            gap: 12px; 
-            animation: fadeUp 0.8s 0.3s ease both;
-        }
-        .social-btn { 
-            width: 48px; 
-            height: 48px; 
-            border-radius: 14px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-            border: 1px solid rgba(255,255,255,0.1);
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 101;
-        }
-        .social-btn:hover { 
-            transform: translateY(-5px); 
-            background: rgba(255,255,255,0.15); 
-            border-color: rgba(255,255,255,0.4);
-        }
-        .social-btn img { 
-            width: 22px; 
-            height: 22px; 
-            object-fit: contain; 
-            transition: 0.3s;
-        }
+.social-nav { 
+    position: fixed; 
+    bottom: 30px; 
+    right: 32px; 
+    z-index: 9999 !important; /* Ультимативный приоритет */
+    display: flex; 
+    gap: 12px; 
+    pointer-events: auto; /* Разрешаем клики */
+}
+
+.social-btn { 
+    width: 48px; 
+    height: 48px; 
+    border-radius: 14px; 
+    display: flex !important; 
+    align-items: center; 
+    justify-content: center; 
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(10, 10, 10, 0.8) !important; /* Делаем фон темнее, чтобы видеть на любом видео */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-decoration: none;
+}
+
+.social-btn:hover { 
+    transform: translateY(-5px); 
+    background: rgba(255,255,255,0.1) !important; 
+    border-color: rgba(255,255,255,0.5);
+}
+
+.social-btn img { 
+    width: 22px !important; 
+    height: 22px !important; 
+    display: block !important;
+    object-fit: contain;
+    /* Убираем возможные фильтры, которые могли сделать иконку невидимой */
+    filter: none !important; 
+}
 
         @keyframes fadeDown { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
