@@ -31,7 +31,8 @@
             width: 100%; 
             height: 100%; 
             object-fit: cover; 
-            opacity: 0.5; 
+            opacity: 0.5;
+            z-index: 2;
         }
         .video-bg::after { 
             content: ''; 
@@ -119,7 +120,7 @@
             position: fixed; 
             bottom: 30px; 
             right: 32px; 
-            z-index: 2;
+            z-index: 10;
             display: flex; 
             gap: 12px; 
             animation: fadeUp 0.8s 0.3s ease both;
@@ -136,11 +137,12 @@
             background: rgba(255,255,255,0.08);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            z-index: 11;
         }
         .social-btn:hover { 
             transform: translateY(-5px); 
             background: rgba(255,255,255,0.15); 
-            border-color: rgba(255,255,255,0.4); 
+            border-color: rgba(255,255,255,0.4);
         }
         .social-btn img { 
             width: 22px; 
