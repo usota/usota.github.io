@@ -115,44 +115,40 @@
         .main-title h1 { font-size: clamp(40px, 8vw, 70px); text-transform: uppercase; line-height: 0.85; }
         .main-title h1 em { font-style: normal; color: rgba(255,255,255,0.2); }
 
-/* КНОПКИ СОЦСЕТЕЙ - ФИНАЛЬНЫЙ ФИКС */
+        /* КНОПКИ СОЦСЕТЕЙ - ПРИНУДИТЕЛЬНО СВЕРХУ */
         .social-nav { 
             position: fixed; 
             bottom: 30px; 
             right: 32px; 
-            z-index: 9999; /* Максимальный приоритет над видео и зернистостью */
+            z-index: 100;
             display: flex; 
             gap: 12px; 
             animation: fadeUp 0.8s 0.3s ease both;
         }
-
         .social-btn { 
             width: 48px; 
             height: 48px; 
             border-radius: 14px; 
-            display: flex !important; /* Принудительный флекс */
+            display: flex; 
             align-items: center; 
             justify-content: center; 
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.2);
-            background: rgba(20, 20, 20, 0.8) !important; /* Сделали фон почти черным, чтобы его БЫЛО видно */
+            transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.08);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            text-decoration: none;
+            z-index: 101;
         }
-
         .social-btn:hover { 
             transform: translateY(-5px); 
-            background: rgba(255,255,255,0.15) !important; 
-            border-color: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.15); 
+            border-color: rgba(255,255,255,0.4);
         }
-
         .social-btn img { 
-            width: 24px !important; 
-            height: 24px !important; 
-            display: block !important;
-            object-fit: contain;
-            pointer-events: none; /* Чтобы клик шел на ссылку, а не на картинку */
+            width: 22px; 
+            height: 22px; 
+            object-fit: contain; 
+            transition: 0.3s;
         }
 
         @keyframes fadeDown { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
@@ -162,6 +158,15 @@
     </style>
 </head>
 <body>
+
+<div class="social-nav">
+    <a href="https://dsc.gg/s7-sw" target="_blank" class="social-btn" title="Discord">
+        <img src="https://raw.githubusercontent.com/odesseu/odesseu.github.io/master/resources/icons/discord.png" alt="Discord">
+    </a>
+    <a href="https://t.me/murrdevs" target="_blank" class="social-btn" title="Telegram">
+        <img src="https://raw.githubusercontent.com/odesseu/odesseu.github.io/master/resources/icons/telegram.png" alt="Telegram">
+    </a>
+</div>
 
 <div class="video-bg">
     <video id="main-bg" autoplay muted loop playsinline></video>
@@ -205,15 +210,6 @@
 <div class="main-title">
     <h1>odesseu<em>.</em></h1>
     <div class="mono" style="opacity:0.3; letter-spacing:3px">DIGITAL ARCHITECT</div>
-</div>
-
-<div class="social-nav">
-    <a href="https://dsc.gg/s7-sw" target="_blank" class="social-btn" title="Discord">
-        <img src="https://raw.githubusercontent.com/odesseu/odesseu.github.io/master/resources/icons/discord.png" alt="Discord">
-    </a>
-    <a href="https://t.me/murrdevs" target="_blank" class="social-btn" title="Telegram">
-        <img src="https://raw.githubusercontent.com/odesseu/odesseu.github.io/master/resources/icons/telegram.png" alt="Telegram">
-    </a>
 </div>
 
 <script>
