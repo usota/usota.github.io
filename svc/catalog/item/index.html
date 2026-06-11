@@ -26,11 +26,11 @@
             font-family: 'Poppins', sans-serif;
             min-height: 100vh;
             overflow-x: hidden;
-            animation: pageFadeIn 0.4s ease forwards;
+            /* Анимацию отсюда полностью убираем */
         }
         @keyframes pageFadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to   { opacity: 1; transform: none; }
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: none; }
         }
 
         /* ── BG ── */
@@ -58,9 +58,10 @@
         /* ── MAIN ── */
         .main {
             position: relative; z-index: 2;
-            padding: 36px 36px 60px;
+            padding: 36px 36px 120px;
             max-width: 1400px; margin: 0 auto;
             min-height: 100vh;
+            animation: pageFadeIn 0.4s ease forwards; /* Теперь анимация тут */
         }
 
         .page-header {
